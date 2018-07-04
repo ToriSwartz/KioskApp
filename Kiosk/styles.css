@@ -1,0 +1,242 @@
+.styled-select #medium{
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 3px;
+  z-index: 1;
+  position: absolute;
+  right: 100px;
+  top: 135px;
+
+  overflow: hidden;
+
+}
+.styled-select #feild{
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 3px;
+  z-index: 1;
+  position: absolute;
+  right: 210px;
+  top: 135px;
+
+  overflow: hidden;
+
+}
+
+.styled-select #material{
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 3px;
+  z-index: 1;
+  position: absolute;
+  right: 320px;
+  top: 135px;
+
+  overflow: hidden;
+
+}
+.styled-select, .styled-select select { width: 100px;}
+select:focus { outline: none; }
+.styled-select select {
+  height: 34px;
+  padding: 5px 0 5px 5px;
+  background: white;
+  border: none;
+
+  -webkit-appearance: none;
+}
+
+.searchBar{
+  z-index: 1;
+  position: absolute;
+  right: 100px;
+  top: 90px;
+}
+
+.searchBox {
+  z-index: 1;
+  max-width: 960px;
+
+  width: 100%;
+}
+.searchBox .searchBar {
+  text-align: center;
+}
+.searchBox .searchBar input {
+  text-align: left;
+  border-radius: 4px;
+  border: 1px solid #a0a0a0;
+  padding: 0.6rem 2rem 0.6rem 1rem;
+  width: 320px;
+  transition: 0.5s;
+}
+.searchBox .searchBar input:focus {
+  outline: none;
+  border-color: #212121;
+  transition: 0.5s;
+}
+.searchBox .searchBar span:before {
+  content: "";
+  cursor: pointer;
+  position: relative;
+  font-family: fontawesome;
+  top: 0;
+  right: 1.5rem;
+}
+
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar-wrapper {
+  margin-left: -400px;
+  left: 0;
+  width: 400px;
+  background: white;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  -moz-transition: all 0.5s ease-in 0s;
+  -ms-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 400px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  line-height: 30px;
+  text-indent: 20px;
+}
+
+.sidebar-nav li h4 {
+  color: #00add9;
+  display: block;
+  padding-top: 5px;
+}
+
+.sidebar-nav li p {
+  color: gray;
+  display: block;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-indent: 0px;
+  text-align: justify;
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 55px;
+  line-height: 55px;
+  font-size: 18px;
+}
+
+.sidebar-brand{
+  background: rgb(0, 59, 99);
+}
+
+#menu-toggle {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+}
+
+#sidebar-wrapper.active {
+  left: 400px;
+  width: 400px;
+  transition: all 0.5s ease-out 0s;
+  -webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  -ms-transition: all 0.5s ease-out 0s;
+  -o-transition: all 0.5s ease-out 0s;
+
+  box-shadow: 10px 0px rgba(1,1,1,0.01);
+}
+
+.toggle {
+  margin: 5px 5px 0 0;
+}
+
+/* gallery styles */
+#photos {
+  opacity: .88;
+  padding-left: 10px;
+}
+
+#photos img {
+  width: 30%;
+  float: left;
+  display: block;
+  margin: 2px;
+}
+
+#photos #video{
+  height: 0;
+}
+
+
+
+#overlay #video{
+  height: 1;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 1200px;
+  border-radius: 5px;
+}
+
+#photo-gallery{
+  list-style: none;
+  margin: 0px auto;
+  padding: 10px;
+  display: block;
+  max-width: 780px;
+  text-align: center;
+}
+
+#overlay {
+  background: rgba(0,0,0, .8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  text-align: center;
+  z-index: 2000;
+}
+
+#overlay img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 550px;
+  border-radius: 5px;
+}
+
+#photos {
+  width: 100%;
+}
+
+#photo-gallery {
+  width: 100%;
+}

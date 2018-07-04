@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Styled Map Types</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!-- <script src="googleMaps"></script> -->
+
+
+</head>
+<body>
+  <!-- <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="glyphicon glyphicon-bookmark"></i></a> -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="glyphicon glyphicon-remove"></i></a>
+      <li class="sidebar-brand">
+      </li>
+      <li>
+        <h4 href="#">Name</h4>
+        <p id="name">Example</p>
+      </li>
+      <li class="Origin">
+        <h4 href="#origin">Origin</h4>
+        <p id="origin">Example</p>
+      </li>
+      <li>
+        <h4 href="#location">Location</h4>
+        <p id="location">Example</p>
+      </li>
+      <li href="#description">
+        <p id="description">blablablablablablabalbalbalabalbalbalablbaab</p>
+      </li>
+      <li>
+        <h4 href="#sigTrenton">Significance to Trenton</h4>
+        <p id="significance">Example</p>
+      </li>
+      <li>
+        <h4 href="#media">Media</h4>
+        <div id="photos">
+          <ul id="photo-gallery"></ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script id="data" type="application/json">
+      [
+        {
+          "name": "3D Model of teacup",
+          "origin": "Teacup factory",
+          "location": "Alleyway",
+          "lat": 40.235,
+          "long": -74.760,
+          "description": "A 3D model of the worlds fanciest teacup!",
+          "tags": [
+            "pottery",
+            "teacup",
+            "3D modeling"
+          ],
+          "significance": "some stuff",
+          "images":[
+            "https://i.ytimg.com/vi/2Y1ZyjGdPeE/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/2Y1ZyjGdPeE/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/2Y1ZyjGdPeE/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/2Y1ZyjGdPeE/maxresdefault.jpg"
+          ]
+        },
+        {
+          "name": "Mystery Game",
+          "origin": "Photo Book",
+          "location": "House",
+          "lat": 40.230,
+          "long": -74.800,
+          "description": "A mystery game!",
+          "tags": [
+            "game",
+            "videogame"
+          ],
+          "images":[
+            "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-30.jpg",
+            "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-30.jpg",
+            "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-30.jpg",
+            "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-30.jpg"
+          ]
+        }
+      ]
+    </script>
+    <script>
+    $(document).ready(function() {
+      $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+      });
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+      });
+    });
+
+    </script>
+
+    <div id="map"></div>
+
+
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrl0mWDOeBK0DRjl79pwA7FreyF_S7R3c"></script>
+    <script src="funstuff.js"></script>
+  </body>
+</html>

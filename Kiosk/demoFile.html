@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trentoniana</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+  <!-- <script src="googleMaps"></script> -->
+
+
+</head>
+<body>
+
+  <div id="map-canvas"></div>
+
+  <div class="toolbar">
+
+    <div class="styled-select">
+      <select id="medium" onchange="filterMarkersMed(this.value);">
+        <option value="">Medium...</option>
+        <option value="3DModel">3DModel</option>
+        <option value="Photograph">Photograph</option>
+        <option value="Handwritten">Handwritten</option>
+        <option value="Printed">Printed</option>
+        <option value="Manufactured">Manufactured</option>
+        <option value="Found">Found</option>
+      </select>
+    </div>
+
+    <div class="styled-select">
+      <select id="feild" onchange="filterMarkersFe(this.value);">
+        <option value="">Feild...</option>
+        <option value="Art">Art</option>
+        <option value="News">News</option>
+        <option value="Military">Military</option>
+        <option value="Immigration">Immigration</option>
+        <option value="Advertising">Advertising</option>
+        <option value="Crime">Crime</option>
+      </select>
+    </div>
+
+    <div class="styled-select">
+      <select id="material" onchange="filterMarkersMat(this.value);">
+        <option value="">Material...</option>
+        <option value="Paper">Paper</option>
+        <option value="Plastic">Plastic</option>
+        <option value="Metal">Metal</option>
+        <option value="Wood">Wood</option>
+        <option value="Fabric">Fabric</option>
+        <option value="Ceramic">Ceramic</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="searchBox">
+    <div class="searchBar">
+      <input type="text" onchange="searchObject(this.value);" placeholder="Search..">
+    </div>
+  </div>
+
+</div>
+
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="glyphicon glyphicon-remove"></i></a>
+    <li class="sidebar-brand">
+    </li>
+    <li>
+      <h4 href="#">Name</h4>
+      <p id="name"></p>
+    </li>
+    <li class="Origin">
+      <h4 href="#origin">Origin</h4>
+      <p id="origin"></p>
+    </li>
+    <li>
+      <h4 href="#location">Location</h4>
+      <p id="location"></p>
+    </li>
+    <li href="#description">
+      <p id="description"></p>
+    </li>
+    <li>
+      <h4 href="#sigTrenton">Significance to Trenton</h4>
+      <p id="significance"></p>
+    </li>
+    <li>
+      <h4 href="#media">Media</h4>
+      <div id="photos">
+        <ul id="photo-gallery"></ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script id="data" type="application/json">
+[
+  {
+    "name": "Andrew Valdes George Washington Triumphal Arch",
+    "origin": "Trenton",
+    "location": "Calhoun Street Toll Supported Bridge",
+    "lat": 40.220078,
+    "long": -74.778231,
+    "description": "On this day in history, April 21, 1789, George Washington is welcomed by the citizens of Trenton, New Jersey at the Assunpink Creek Bridge as he travels to New York to be inaugurated president. The bridge was the site of Washington's victory over the British known as the Second Battle of Trenton or the Battle of Assunpink Creek during the American Revolution.",
+    "material": "Wood",
+    "feild": "Military",
+    "medium": "Found",
+    "significance": "George Washington",
+    "images":[
+    ],
+    "video":[
+      "https://www.youtube.com/embed/LMoSvhqImjk",
+      "https://libwww.freelibrary.org/assets/digital/items/pdcc00143/images/large.jpg"
+    ]
+  },
+  {
+    "name": "Champale Ad",
+    "origin": "Trenton",
+    "location": "Calhoun Street Toll Supported Bridge",
+    "lat": 40.205849,
+    "long": -74.758965,
+    "description": "Champale Malt Liquor was first produced in 1939 by The Metropolis Brewing Company at its brewery on Lamberton and Lalor streets in Trenton, New Jersey and later also in Norfolk, Virginia. The companies' names were later changed to Champale, Inc. and The Champale Products Corporation. The two operating breweries were privately owned by the Hertzberg brothers until their sale to publicly held Iroquois Brands, Ltd. in the mid-1970s.",
+    "material": "",
+    "feild": "Advertising",
+    "medium": "Manufactured",
+    "significance": "Pop Culture",
+    "images":[
+    ],
+    "video":[
+      "https://www.youtube.com/embed/kj6enb6HxtE",
+      "https://www.taverntrove.com/beerpics/Golden-Champale-Malt-Liquor--Labels-Champale-Inc_67298-1.jpg"
+    ]
+  },
+  {
+    "name": "1962 Championship Jacket",
+    "origin": "Trenton",
+    "location": "Chambersburg Little League",
+    "lat": 40.215852,
+    "long": -74.746932,
+    "description": "The all-star youth team was comprised of both the Chambersburg Little League and Trenton PAL program athletes. The team showed amazing dedication as they worked their way into the finals of the World Series. After narrowly avoiding being defeated by the neightboring team of Ewing, New Jersey, the teens made it to the final game and played in front of an audience of 7,500. Facing off against the team of Portland, Oregon the Trenton teens gained a 7-2 lead before Portland rallied. The game was close at 7-6 after an amazing display of baseball by Portland. However, Trenton was able to clinch a victory and bring home the gold. It was a season that would bring this team to be known as a team of destiny in the history of Trenton sports.",
+    "material": "Fabric",
+    "feild": "",
+    "medium": "Found",
+    "significance": "Local Sports",
+    "images":[
+    ],
+    "video":[
+      "https://www.youtube.com/embed/p3U_a3j47Tg",
+      "http://2.bp.blogspot.com/-HONPTSmpNrg/UD6d9ZTshRI/AAAAAAAALu0/9T7Qckjl2Uk/s1600/AAAADENNISBUSHKENTAALL61.jpg"
+    ]
+  },
+  {
+    "name": "Printing Plates",
+    "origin": "Trenton",
+    "location": "Factory",
+    "lat": 40.237170,
+    "long": -74.765078,
+    "description": "",
+    "material": "Metal",
+    "feild": "News",
+    "medium": "Manufactured",
+    "significance": "News",
+    "images":[
+    ],
+    "video":[
+      "https://www.youtube.com/embed/4ADNOCurezI",
+      "http://www.trentonhistory.org/His/Illustrationns/C15-1stNewspaper.jpg"
+    ]
+  },
+  {
+    "name": "Roebling Market",
+    "origin": "Trenton",
+    "location": "Roebling Market",
+    "lat": 40.210517,
+    "long": -74.754354,
+    "description": "",
+    "material": "",
+    "feild": "",
+    "medium": "Manufactured",
+    "significance": "Commerce",
+    "images":[
+    ],
+    "video":[
+      "https://www.youtube.com/embed/s9qjLpx9wHU",
+      "https://i.ytimg.com/vi/s9qjLpx9wHU/maxresdefault.jpg"
+    ]
+  },
+  {
+    "name": "New Jersey Historic Trust",
+    "origin": "Trenton",
+    "location": "Historic Preservation Office",
+    "lat": 40.210517,
+    "long": -74.744953,
+    "description": "",
+    "material": "",
+    "feild": "News",
+    "medium": "Manufactured",
+    "significance": "Newspaper",
+    "images":[
+    ],
+    "video":[
+      "https://www.youtube.com/embed/c7VLmW40Ehc",
+      "http://njplanning.org/wp-content/uploads/NJ-Historic-Trust.jpg"
+    ]
+  },
+  {
+    "name": "True Crime:Trenton",
+    "origin": "Trenton",
+    "location": "Duck Island",
+    "lat": 40.179282,
+    "long": -74.727941,
+    "description": "",
+    "material": "",
+    "feild": "Crime",
+    "medium": "",
+    "significance": "Historic",
+    "images":[
+    ],
+    "video":[
+      "https://thomasgiulianelli.github.io/Trenton-True-Crime/",
+      "https://github.com/ThomasGiulianelli/Trenton-True-Crime/blob/master/assets/images/start_screen_background.png?raw=true"
+    ]
+  },
+  {
+    "name": "Higher Education in Trenton",
+    "origin": "Trenton",
+    "location": "The College of New Jersey",
+    "lat": 40.260830,
+    "long": -74.778989,
+    "description": "",
+    "material": "",
+    "feild": "News",
+    "medium": "Printed",
+    "significance": "Historic",
+    "images":[
+    ],
+    "video":[
+      "https://spark.adobe.com/page/N9KJXGu8CwufW/",
+      "http://nostalgia.esmartkid.com/mercercard045.jpg"
+    ]
+  },
+  {
+    "name": "I Don't Want No Steady Girl",
+    "origin": "Trenton",
+    "location": "Unknown",
+    "lat": 40.260830,
+    "long": -74.768989,
+    "description": "",
+    "material": "Paper",
+    "feild": "Art",
+    "medium": "",
+    "significance": "Historic",
+    "images":[
+      "http://oi65.tinypic.com/10n7vgx.jpg",
+      "http://oi66.tinypic.com/2dt8zcw.jpg",
+      "http://oi67.tinypic.com/4trj35.jpg",
+      "http://oi63.tinypic.com/166elja.jpg",
+      "http://oi66.tinypic.com/314410p.jpg"
+    ],
+    "video":[
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/441472053&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+      "http://oi65.tinypic.com/10n7vgx.jpg"
+    ]
+  },
+  {
+    "name": "Flat Trenton on the Delaware",
+    "origin": "Trenton",
+    "location": "Unknown",
+    "lat": 40.223257,
+    "long": -74.745195,
+    "description": "",
+    "material": "Paper",
+    "feild": "Art",
+    "medium": "",
+    "significance": "Historic",
+    "images":[],
+    "video":[
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/441473016&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+      "http://oi66.tinypic.com/2dt8zcw.jpg"
+    ]
+  },
+  {
+    "name": "Rattlebox Polka",
+    "origin": "Trenton",
+    "location": "Unknown",
+    "lat": 40.233257,
+    "long": -74.735195,
+    "description": "",
+    "material": "Paper",
+    "feild": "Art",
+    "medium": "",
+    "significance": "Historic",
+    "images":[
+      "http://oi63.tinypic.com/xfpzde.jpg",
+      "http://oi67.tinypic.com/28je8sp.jpg",
+      "http://oi67.tinypic.com/2hn9t2e.jpg"
+    ],
+    "video":[
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/441473016&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+      "http://oi63.tinypic.com/xfpzde.jpg"
+    ]
+  },
+  {
+    "name": "The World is Full of Sorrow",
+    "origin": "Trenton",
+    "location": "Unknown",
+    "lat": 40.244618,
+    "long": -74.755752,
+    "description": "",
+    "material": "Paper",
+    "feild": "Art",
+    "medium": "",
+    "significance": "Historic",
+    "images":[
+      "http://oi66.tinypic.com/33p6ogo.jpg",
+      "http://oi66.tinypic.com/2q3nayg.jpg",
+      "http://oi68.tinypic.com/2isct2f.jpg"
+    ],
+    "video":[
+      "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/441475308&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+      "http://oi66.tinypic.com/33p6ogo.jpg"
+    ]
+  },
+  {
+    "name": "Hamid Compares Past with Show Biz Today",
+    "origin": "Trenton",
+    "location": "Unknown",
+    "lat": 40.239,
+    "long": -74.800,
+    "description": "",
+    "material": "",
+    "feild": "Art",
+    "medium": "",
+    "significance": "Historic",
+    "images":[],
+    "video":[
+      "https://spark.adobe.com/page/4YB7oDzvZcrAw/",
+      "https://bloximages.chicago2.vip.townnews.com/pressofatlanticcity.com/content/tncms/assets/v3/editorial/1/76/1767b56a-7e31-11e2-8570-0019bb2963f4/5129870d15df8.image.jpg"
+    ]
+  }
+]
+</script>
+<script>
+$(document).ready(function() {
+  $("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+    document.getElementById("video").remove();
+  });
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+
+  });
+});
+
+</script>
+
+<div id="map"></div>
+
+
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrl0mWDOeBK0DRjl79pwA7FreyF_S7R3c"></script>
+<script src="javascript.js"></script>
+</body>
+</html>
